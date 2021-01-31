@@ -39,4 +39,15 @@ public class ControllerDispatcher extends HttpServlet{
 			}//catch
 		}//while
 	}//init()
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+		reqPro(request,response);
+	}//doGet()
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+		reqPro(request,response);
+	}//doPost()
+	
+	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+		
+	}//reqPro()
 }//class
