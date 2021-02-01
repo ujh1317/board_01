@@ -1,8 +1,10 @@
 package controller;
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 import java.io.*;
 import java.util.*;
+
 import command.CommandAction;
 
 public class ControllerDispatcher extends HttpServlet{
@@ -48,6 +50,12 @@ public class ControllerDispatcher extends HttpServlet{
 	}//doPost()
 	
 	private void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-		
+		String view = "";
+		CommandAction commandAction = null;
+		try{
+			String uri = request.getRequestURI();
+		}catch(Throwable e){
+			throw new ServletException(e);
+		}//catch
 	}//reqPro()
 }//class
