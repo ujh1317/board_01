@@ -1,4 +1,4 @@
-package boardmysql;
+package board.mysql;
 import java.util.*;
 
 public class BoardDTO {

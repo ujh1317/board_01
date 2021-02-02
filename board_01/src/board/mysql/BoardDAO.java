@@ -1,4 +1,4 @@
-package boardmysql;
+package board.mysql;
 import java.sql.*;
 import java.util.*;
 import javax.sql.*;

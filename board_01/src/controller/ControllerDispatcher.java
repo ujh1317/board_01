@@ -54,6 +54,9 @@ public class ControllerDispatcher extends HttpServlet{
 		CommandAction commandAction = null;
 		try{
 			String uri = request.getRequestURI();
+			if(uri.indexOf(request.getContextPath())==0){
+				uri = uri.substring(request.getContextPath().length());
+			}//if
 		}catch(Throwable e){
 			throw new ServletException(e);
 		}//catch
