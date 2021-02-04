@@ -63,5 +63,9 @@ public class ControllerDispatcher extends HttpServlet{
 		}catch(Throwable e){
 			throw new ServletException(e);
 		}//catch
+		
+		request.setAttribute("CONTENT", view);
+		RequestDispatcher rd = request.getRequestDispatcher("template/template.jsp");
+		rd.forward(request, response);
 	}//reqPro()
 }//class
