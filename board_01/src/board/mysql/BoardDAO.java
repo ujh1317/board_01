@@ -29,7 +29,7 @@ public class BoardDAO {
 	}//getConn()
 	
 	//글쓰기 , 답글쓰기
-	public void insertArticle(BoardDTO dto) throws Exception{
+	public void insertBoard(BoardDTO dto) throws Exception{
 		int num = dto.getNum();
 		int ref = dto.getRef();
 		int re_step = dto.getRe_step();
@@ -44,6 +44,21 @@ public class BoardDAO {
 				number = rs.getInt(1)+1;
 			}else{//글이 없을때
 				number = 1;
+			}//else
+			
+			if(num!=0){
+				sql = "update board01 set re_step=re_step+2 where ref=? and re_step>?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, ref);
+				pstmt.setInt(2, re_step);
+				pstmt.executeUpdate();
+				
+				re_step = re_step+1;
+				re_level = re_level+1;
+			}else{
+				ref = number;
+				re_step = 0;
+				re_level = 0;
 			}//else
 			
 			sql = "insert into board01(writer,title,pw,regdate,ref,re_step,re_level,content,ip)"
@@ -67,7 +82,7 @@ public class BoardDAO {
 				if(conn!=null){conn.close();}
 			}catch(Exception e){}
 		}//finally
-	}//insertArticle()
+	}//insertBoard()
 	
 	
 	
