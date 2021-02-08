@@ -5,13 +5,16 @@ public class BoardDTO {
 	private int num; //글번호
 	private String writer; //글쓴이
 	private String title; //글제목
-	private Date regdate; //등록일
+	private String category; //카테고리
+	private String regdate; //등록일
+	private String modifydate; //수정일
 	private int readcount; //조회수
 	private int ref; //글그룹
 	private int re_step; //원글과 답글 순서
 	private int re_level; //답글 깊이
 	private String content; //글내용
-	private String ip;
+	private String ip; //아이피
+	private int rank; //등급
 	
 	public BoardDTO(){}
 
@@ -39,12 +42,28 @@ public class BoardDTO {
 		this.title = title;
 	}
 
-	public Date getRegdate() {
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+
+	public String getModifydate() {
+		return modifydate;
+	}
+
+	public void setModifydate(String modifydate) {
+		this.modifydate = modifydate;
 	}
 
 	public int getReadcount() {
@@ -93,5 +112,13 @@ public class BoardDTO {
 
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 }//class
