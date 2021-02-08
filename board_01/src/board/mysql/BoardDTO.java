@@ -5,7 +5,6 @@ public class BoardDTO {
 	private int num; //글번호
 	private String writer; //글쓴이
 	private String title; //글제목
-	private String pw; //암호
 	private Date regdate; //등록일
 	private int readcount; //조회수
 	private int ref; //글그룹
@@ -38,14 +37,6 @@ public class BoardDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
 	}
 
 	public Date getRegdate() {
