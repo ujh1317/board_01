@@ -2,6 +2,7 @@
 <!-- context.xml -->
 
 <Context docBase="board_01" path="/board_01" reloadable="true">
+<!-- MySQL -->
 <Resource  
 name="jdbc/mysql"
 auth="Container"
@@ -15,6 +16,24 @@ maxActive="20"
 testOnBorrow="true"
 factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
 closeMethod="close"
+/>
+
+
+<!-- 오라클 -->
+<Resource 
+name="jdbc/oracle"  
+auth="Container" 
+type="javax.sql.DataSource"  
+driverClassName="oracle.jdbc.driver.OracleDriver" 
+url="jdbc:oracle:thin:@localhost:1521:XE"   
+username="scott" 
+password="tiger" 
+maxWait="5000" 
+maxActive="20" 
+testOnBorrow="true" 
+factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+closeMethod="close"
+
 />
 
 </Context>

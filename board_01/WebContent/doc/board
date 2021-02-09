@@ -1,0 +1,16 @@
+
+create table board(
+num int(11) not null auto_increment primary key,
+writer varchar(30) not null,
+category varchar(30) not null,
+title varchar(50) not null,
+regdate datetime,
+modifydate datetime,
+readcount int(11) default 0,
+ref int(11) not null,
+re_step int(4) not null, 
+re_level int(4) not null, 
+content text not null,
+ip varchar(30),
+rank int(4) not null
+);
