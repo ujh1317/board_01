@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>board list</title>
+<title>boardList</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
