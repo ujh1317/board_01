@@ -1,17 +1,13 @@
-   a:link,a:visited,a:active {
-      text-decoration : none;
-   }
-   a:hover {
-      text-decoration : underline;
-      color : red;
-   }
-   TABLE, TD,TR, TH{
-          font-size:11pt;
-   }
-   p{
-      font-size:11pt;
-   }
-	table{
-		width: 80%;
-		align: center;
+table{
+	width: 80%;
+	margin: auto;
 	}
+a:link,a:visited,a:active,a:hover{
+	text-decoration: none;
+}
+table,tr,td,th{
+	font-size: 11pt;
+}
+p{
+	font-size: 11pt;
+}

@@ -2,7 +2,6 @@
 create table board(
 num int(11) not null auto_increment primary key,
 writer varchar(30) not null,
-category varchar(30) not null,
 title varchar(50) not null,
 regdate datetime,
 modifydate datetime,

@@ -5,7 +5,6 @@ public class BoardDTO {
 	private int num; //글번호
 	private String writer; //글쓴이
 	private String title; //글제목
-	private String category; //카테고리
 	private String regdate; //등록일
 	private String modifydate; //수정일
 	private int readcount; //조회수
@@ -40,14 +39,6 @@ public class BoardDTO {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public String getRegdate() {

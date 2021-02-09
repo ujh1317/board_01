@@ -61,18 +61,17 @@ public class BoardDAO {
 				re_level = 0;
 			}//else
 			
-			sql = "insert into board(writer,title,category,regdate,modifydate,ref,re_step,re_level,content,ip,rank)"
-					+" values(?,?,?,now(),now(),?,?,?,?,?,?)";
+			sql = "insert into board(writer,title,regdate,modifydate,ref,re_step,re_level,content,ip,rank)"
+					+" values(?,?,now(),now(),?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getWriter());
 			pstmt.setString(2, dto.getTitle());
-			pstmt.setString(3, dto.getCategory());
-			pstmt.setInt(4, ref);
-			pstmt.setInt(5, re_step);
-			pstmt.setInt(6, re_level);
-			pstmt.setString(7, dto.getContent());
-			pstmt.setString(8, dto.getIp());
-			pstmt.setInt(9, dto.getRank());
+			pstmt.setInt(3, ref);
+			pstmt.setInt(4, re_step);
+			pstmt.setInt(5, re_level);
+			pstmt.setString(6, dto.getContent());
+			pstmt.setString(7, dto.getIp());
+			pstmt.setInt(8, dto.getRank());
 			pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -108,25 +107,16 @@ public class BoardDAO {
 	}//getCount()
 	
 	//리스트
-	public List getList(int start, int cnt, String list_category) throws Exception{
+	public List getList(int start, int cnt) throws Exception{
 		List<BoardDTO> list = null;
 		try{
 			conn = getConn();
-			if(list_category==null || list_category==""||list_category=="전체글"){
-				
-				sql = "select * from board order by ref desc, re_step asc limit ?,?";
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, start); //시작위치
-				pstmt.setInt(2, cnt); //갯수
-				rs = pstmt.executeQuery();
-			}else{
-				sql = "select * from board where category=? order by ref desc, re_step asc limit ?,?";
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, list_category);
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, cnt);
-				rs = pstmt.executeQuery();
-			}//else
+			sql = "select * from board order by ref desc, re_step asc limit ?,?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, start); //시작위치
+			pstmt.setInt(2, cnt); //갯수
+			rs = pstmt.executeQuery();
+		
 			if(rs.next()){
 				list = new ArrayList<BoardDTO>();
 				do{
@@ -134,7 +124,6 @@ public class BoardDAO {
 					dto.setNum(rs.getInt("num"));
 					dto.setWriter(rs.getString("writer"));
 					dto.setTitle(rs.getString("title"));
-					dto.setCategory(rs.getString("category"));
 					dto.setContent(rs.getString("content"));
 					dto.setRegdate(rs.getString("regdate"));
 					dto.setModifydate(rs.getString("modifydate"));
@@ -177,7 +166,6 @@ public class BoardDAO {
 				dto.setNum(rs.getInt("num"));
 				dto.setWriter(rs.getString("writer"));
 				dto.setTitle(rs.getString("title"));
-				dto.setCategory(rs.getString("category"));
 				dto.setContent(rs.getString("content"));
 				dto.setRegdate(rs.getString("regdate"));
 				dto.setModifydate(rs.getString("modifydate"));
@@ -214,7 +202,6 @@ public class BoardDAO {
 				dto.setNum(rs.getInt("num"));
 				dto.setWriter(rs.getString("writer"));
 				dto.setTitle(rs.getString("title"));
-				dto.setCategory(rs.getString("category"));
 				dto.setContent(rs.getString("content"));
 				dto.setReadcount(rs.getInt("readcount"));
 				dto.setRegdate(rs.getString("regdate"));
@@ -246,12 +233,11 @@ public class BoardDAO {
 			pstmt.setInt(1, dto.getNum());
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				sql = "update board set title=?, category=?, content=?, modifydate=now() where num=?";
+				sql = "update board set title=?, content=?, modifydate=now() where num=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, dto.getTitle());
-				pstmt.setString(2, dto.getCategory());
-				pstmt.setString(3, dto.getContent());
-				pstmt.setInt(4, dto.getNum());
+				pstmt.setString(2, dto.getContent());
+				pstmt.setInt(3, dto.getNum());
 				pstmt.executeUpdate();
 				x = 1;
 			}else{

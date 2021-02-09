@@ -19,11 +19,6 @@ public class ListAction implements CommandAction {
 			pageNum = "1";
 		}//if
 		
-		String list_category = request.getParameter("list_category");
-		if(list_category==null){
-			list_category = "";
-		}//if
-		
 		int pageSize = 10;
 		int pageBlock = 10;
 		int currentPage = Integer.parseInt(pageNum);
@@ -32,12 +27,12 @@ public class ListAction implements CommandAction {
 		int count = 0;
 		int number = 0;
 		
-		List<BoardDTO> boardList = null;
+		List boardList = null;
 		BoardDAO dao = BoardDAO.getDao();
 		
 		count = dao.getCount();
 		if(count>0){
-			boardList = dao.getList(startRow, pageSize, list_category);
+			boardList = dao.getList(startRow, pageSize);
 		}else{
 			boardList = Collections.EMPTY_LIST;
 		}//else
@@ -50,7 +45,6 @@ public class ListAction implements CommandAction {
 		
 		//jsp에서 사용할
 		request.setAttribute("pageNum", pageNum);
-		request.setAttribute("list_category", list_category);
 		request.setAttribute("currentPage", currentPage);
 		request.setAttribute("startRow", new Integer(startRow));
 		request.setAttribute("endRow", new Integer(endRow));

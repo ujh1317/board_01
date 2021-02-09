@@ -15,16 +15,37 @@
 			<td colspan="2" align="center"><font size="7"><b>게시판</b></font></td>
 		</tr>
 		<tr>
-			<td align="center">
-				<select>
-					<option selected value="${list_category}">
-					<c:if test="${empty list_category}">
-						카테고리 선택
-					</c:if>
-				</select>
+			<td align="right">
+				<a href="${ctxpath}/board/writeForm.do">글쓰기</a>
 			</td>
 		</tr>
-		
 	</table>
+	
+	<c:if test="${count==0}">
+	<table>
+		<tr>
+			<td align="center">게시글이 없습니다.</td>
+		</tr>
+	</table>
+	</c:if>
+	<c:if test="${count>0}">
+	<table>
+		<tr>
+			<td>글번호</td>
+			<td>글제목</td>
+			<td>작성자</td>
+			<td>등록일</td>
+			<td>조회수</td>
+		</tr>
+		<c:forEach var="dto" items="${boardList}">
+			<tr>
+				<td>
+					<c:out value="${number}"/>
+					<c:set var="number" value="${number+1}"/>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+	</c:if>
 </body>
 </html>
