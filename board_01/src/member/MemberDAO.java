@@ -52,17 +52,18 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		try{
 			conn = getConn();
-			String sql = "insert into member values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into member values(?,?,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPw());
 			pstmt.setString(3, dto.getName());
-			pstmt.setString(4, dto.getJu1());
-			pstmt.setString(5, dto.getJu2());
-			pstmt.setString(6, dto.getEmail());
-			pstmt.setString(7, dto.getZipcode());
-			pstmt.setString(8, dto.getAddr());
-			pstmt.setTimestamp(9, dto.getRegdate());
+			pstmt.setString(4, dto.getNick());
+			pstmt.setString(5, dto.getJumin1());
+			pstmt.setString(6, dto.getJumin2());
+			pstmt.setString(7, dto.getEmail());
+			pstmt.setString(8, dto.getZipcode());
+			pstmt.setString(9, dto.getAddr());
+			pstmt.setTimestamp(10, dto.getRegdate());
 			pstmt.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();

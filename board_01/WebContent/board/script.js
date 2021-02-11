@@ -26,3 +26,17 @@ function writeSave(){
 	return true;
  }    
 
+
+function loginCheck(){
+	if(document.loginForm.id.value==''){
+		alert("id를 입력하시오.");
+		document.loginForm.id.focus();
+		return false;
+	}
+	if(document.loginForm.pw.value==''){
+		alert("pwd를 입력하시오.");
+		document.loginForm.pw.focus();
+		return false;
+	}
+	return true;
+}

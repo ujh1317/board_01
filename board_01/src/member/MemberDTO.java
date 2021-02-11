@@ -5,8 +5,9 @@ public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
-	private String ju1;
-	private String ju2;
+	private String nick;
+	private String jumin1;
+	private String jumin2;
 	private String email;
 	private String zipcode;
 	private String addr;
@@ -38,20 +39,28 @@ public class MemberDTO {
 		this.name = name;
 	}
 
-	public String getJu1() {
-		return ju1;
+	public String getNick() {
+		return nick;
 	}
 
-	public void setJu1(String ju1) {
-		this.ju1 = ju1;
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
-	public String getJu2() {
-		return ju2;
+	public String getJumin1() {
+		return jumin1;
 	}
 
-	public void setJu2(String ju2) {
-		this.ju2 = ju2;
+	public void setJumin1(String jumin1) {
+		this.jumin1 = jumin1;
+	}
+
+	public String getJumin2() {
+		return jumin2;
+	}
+
+	public void setJumin2(String jumin2) {
+		this.jumin2 = jumin2;
 	}
 
 	public String getEmail() {
