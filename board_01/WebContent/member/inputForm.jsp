@@ -9,16 +9,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="script.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script>
-	function openDaumPostcode(){
-	   new daum.Postcode({
-	      oncomplete:function(data){
-	         document.getElementById('zipcode').value=data.zonecode;
-	         document.getElementById('addr').value=data.address;
-	       }
-	   }).open();
-	}//openDaumPostcode()
-</script>
 </head>
 <body>
 	<table>

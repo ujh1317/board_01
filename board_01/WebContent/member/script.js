@@ -105,3 +105,14 @@ function filterNumber(event){
 	}
 	event.preventDefault();
 }//filterNumber
+
+function openDaumPostcode(){
+	   new daum.Postcode({
+	      oncomplete:function(data){
+	         document.getElementById('zipcode').value=data.zonecode;
+	         document.getElementById('addr').value=data.address;
+	       }
+	   }).open();
+	}//openDaumPostcode()
+
+
